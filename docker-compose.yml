@@ -1,0 +1,21 @@
+services:
+  backend:
+    build: ./backend
+    container_name: wablast-backend
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./backend:/app
+      - ./backend/tokens:/app/tokens:rw
+    user: root
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    container_name: wablast-frontend
+    ports:
+      - "3006:3000"
+    stdin_open: true
+    tty: true
+    depends_on:
+      - backend
