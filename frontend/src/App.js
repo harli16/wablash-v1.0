@@ -1,48 +1,3 @@
-// import React, { useState } from 'react';
-// import axios from 'axios';
-
-// function App() {
-//   const [number, setNumber] = useState('');
-//   const [message, setMessage] = useState('');
-//   const [status, setStatus] = useState('');
-
-//   const sendMessage = async () => {
-//     try {
-//       const res = await axios.post(
-//         `${process.env.REACT_APP_BACKEND_URL}/send`,
-//         { number, message }
-//       );
-//       setStatus(res.data.success ? '✅ Terkirim' : '❌ Gagal');
-//     } catch (err) {
-//       setStatus('❌ Gagal: ' + err.message);
-//     }
-//   };
-
-//   return (
-//     <div style={{ padding: 40 }}>
-//       <h2>WhatsApp Blast</h2>
-//       <input
-//         type="text"
-//         placeholder="Masukkan nomor (62xxx)"
-//         value={number}
-//         onChange={(e) => setNumber(e.target.value)}
-//         style={{ width: 300, padding: 8 }}
-//       /><br /><br />
-//       <textarea
-//         rows="4"
-//         cols="50"
-//         placeholder="Isi pesan"
-//         value={message}
-//         onChange={(e) => setMessage(e.target.value)}
-//       /><br /><br />
-//       <button onClick={sendMessage}>Kirim</button>
-//       <p>Status: {status}</p>
-//     </div>
-//   );
-// }
-
-// export default App;
-
 import React, { useState } from 'react';
 import axios from 'axios';
 import * as XLSX from 'xlsx';
@@ -85,7 +40,7 @@ function App() {
       setStatus('❌ Gagal mengirim: ' + err.message);
     }
   };
-
+  
   return (
     <div style={{ padding: 40, fontFamily: 'Arial' }}>
       <h2>WhatsApp Blast</h2>
