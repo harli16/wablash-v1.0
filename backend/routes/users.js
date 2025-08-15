@@ -9,7 +9,7 @@ router.post('/', authenticateToken, authorizeRole('admin'), async (req, res) => 
   const { username, password, role } = req.body;
   const hashed = await bcrypt.hash(password, 10);
   try {
-    const newUser = new User({ username, password: hashed, role });
+    const newUser = new User({ username, passwordHash: hashed, role });
     await newUser.save();
     res.json({ message: 'User berhasil dibuat' });
   } catch (e) {
@@ -28,7 +28,7 @@ router.put('/:id', authenticateToken, authorizeRole('admin'), async (req, res) =
   const { username, password, role } = req.body;
   const update = { username, role };
   if (password) {
-    update.password = await bcrypt.hash(password, 10);
+    update.passwordHash = await bcrypt.hash(password, 10);
   }
   try {
     await User.findByIdAndUpdate(req.params.id, update);

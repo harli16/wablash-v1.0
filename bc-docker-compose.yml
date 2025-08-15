@@ -1,0 +1,36 @@
+services:
+  backend:
+    build: ./backend
+    container_name: wablast-backend
+    ports:
+      - "3001:3001"
+#    volumes:
+#      - ./backend:/app
+#      - ./backend/tokens:/app/tokens:rw
+    user: root
+    restart: unless-stopped
+    environment:
+      - PORT=3001                       # <--- Tambah baris ini!
+      - MONGO_URI=mongodb://mongo:27017/wablastdb
+    depends_on:
+      - mongo
+    volumes:
+      - ./backend/tokens:/app/tokens:rw
+  frontend:
+    build: ./frontend
+    container_name: wablast-frontend
+    ports:
+      - "3006:3000"
+    stdin_open: true
+    tty: true
+    depends_on:
+      - backend
+
+  mongo:
+    image: mongo:7
+    container_name: wablast-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data/mongodb:/data/db
+    restart: unless-stopped

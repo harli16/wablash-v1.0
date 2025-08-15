@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+body { font-family: 'Inter', sans-serif; }
+
+.legacy .sidebar-link { transition: all 0.2s ease-in-out; }
+.legacy .sidebar-link:hover,
+.legacy .sidebar-link.active { background-color:#4f46e5; color:#fff; }
+.legacy .sidebar-link.active svg,
+.legacy .sidebar-link:hover svg { color:#fff; }
+
+/* Dark helpers */
+.dark .dark\:bg-gray-800 { background-color:#1f2937; }
+.dark .dark\:bg-gray-900 { background-color:#111827; }
+.dark .dark\:text-gray-200 { color:#e5e7eb; }
+.dark .dark\:text-gray-400 { color:#9ca3af; }
+.dark .dark\:border-gray-700 { border-color:#374151; }
+.dark .dark\:hover\:bg-gray-700:hover { background-color:#374151; }
+.dark .sidebar-link.active,
+.dark .sidebar-link:hover { background-color:#4338ca; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width:8px; }
+::-webkit-scrollbar-track { background:#f1f5f9; }
+.dark ::-webkit-scrollbar-track { background:#1f2937; }
+::-webkit-scrollbar-thumb { background:#cbd5e1; border-radius:10px; }
+.dark ::-webkit-scrollbar-thumb { background:#4b5563; }
+::-webkit-scrollbar-thumb:hover { background:#94a3b8; }
+.dark ::-webkit-scrollbar-thumb:hover { background:#6b7280; }
